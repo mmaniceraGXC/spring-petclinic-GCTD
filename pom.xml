@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic</artifactId>
@@ -19,14 +19,14 @@
     <sonar.organization>cursodevsecopsmanicera</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
-    <!-- Generic properties -->
+		<!-- Generic properties -->
     <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <!-- Important for reproducible builds. Update using e.g. ./mvnw versions:set -DnewVersion=... -->
+		<!-- Important for reproducible builds. Update using e.g. ./mvnw versions:set -DnewVersion=... -->
     <project.build.outputTimestamp>2023-05-10T07:42:50Z</project.build.outputTimestamp>
 
-    <!-- Web dependencies -->
+		<!-- Web dependencies -->
     <webjars-bootstrap.version>5.3.3</webjars-bootstrap.version>
     <webjars-font-awesome.version>4.7.0</webjars-font-awesome.version>
 
@@ -40,7 +40,7 @@
   </properties>
 
   <dependencies>
-    <!-- Spring and Spring Boot dependencies -->
+		<!-- Spring and Spring Boot dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
@@ -70,8 +70,58 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+		<!-- Selenium y drivers (Chrome, Firefox, Edge) -->
+	<dependency>
+	  <groupId>org.seleniumhq.selenium</groupId>
+	  <artifactId>selenium-java</artifactId>
+	  <scope>test</scope>
+	</dependency>
+	<dependency>
+	  <groupId>org.seleniumhq.selenium</groupId>
+	  <artifactId>selenium-chrome-driver</artifactId>
+	  <scope>test</scope>
+	</dependency>
+	<dependency>
+	  <groupId>org.seleniumhq.selenium</groupId>
+	  <artifactId>selenium-firefox-driver</artifactId>
+	  <scope>test</scope>
+	</dependency>
 
-    <!-- Databases - Uses H2 by default -->
+		<!-- Gestor de descarga de selenium drivers -->
+	<dependency>
+	  <groupId>io.github.bonigarcia</groupId>
+	  <artifactId>webdrivermanager</artifactId>
+	  <version>5.9.1</version>
+	  <scope>test</scope>
+	</dependency>
+
+		<!-- cucumber -->
+	<dependency>
+		<groupId>io.cucumber</groupId>
+		<artifactId>cucumber-java</artifactId>
+		<version>7.8.1</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>io.cucumber</groupId>
+		<artifactId>cucumber-spring</artifactId>
+		<version>7.8.1</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>io.cucumber</groupId>
+		<artifactId>cucumber-junit-platform-engine</artifactId>
+		<version>7.8.1</version>
+		<scope>test</scope>
+	</dependency>
+		<!-- junit -->
+	<dependency>
+		<groupId>org.junit.platform</groupId>
+		<artifactId>junit-platform-suite</artifactId>
+		<scope>test</scope>
+	</dependency>
+
+		<!-- Databases - Uses H2 by default -->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -88,7 +138,7 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- Caching -->
+		<!-- Caching -->
     <dependency>
       <groupId>javax.cache</groupId>
       <artifactId>cache-api</artifactId>
@@ -98,7 +148,7 @@
       <artifactId>caffeine</artifactId>
     </dependency>
 
-    <!-- Webjars -->
+		<!-- Webjars -->
     <dependency>
       <groupId>org.webjars.npm</groupId>
       <artifactId>bootstrap</artifactId>
@@ -166,7 +216,7 @@
           </execution>
         </executions>
       </plugin>
-      	<!-- jacoco -->
+			<!-- jacoco -->
 			<plugin>
 			  <groupId>org.jacoco</groupId>
 			  <artifactId>jacoco-maven-plugin</artifactId>
@@ -243,7 +293,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <executions>
           <execution>
-            <!-- Spring Boot Actuator displays build-related information 
+						<!-- Spring Boot Actuator displays build-related information 
               if a META-INF/build-info.properties file is present -->
             <goals>
               <goal>build-info</goal>
@@ -260,7 +310,7 @@
         </executions>
       </plugin>
 
-      <!-- Spring Boot Actuator displays build-related information if a git.properties file is
+			<!-- Spring Boot Actuator displays build-related information if a git.properties file is
       present at the classpath -->
       <plugin>
         <groupId>io.github.git-commit-id</groupId>
@@ -270,7 +320,7 @@
           <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
         </configuration>
       </plugin>
-      <!-- Spring Boot Actuator displays sbom-related information if a CycloneDX SBOM file is
+			<!-- Spring Boot Actuator displays sbom-related information if a CycloneDX SBOM file is
       present at the classpath -->
       <plugin>
         <groupId>org.cyclonedx</groupId>
@@ -336,7 +386,7 @@
             <executions>
               <execution>
                 <id>unpack</id>
-                <?m2e execute onConfiguration,onIncremental?>
+								<?m2e execute onConfiguration,onIncremental?>
                 <phase>generate-resources</phase>
                 <goals>
                   <goal>unpack</goal>
@@ -362,7 +412,7 @@
             <executions>
               <execution>
                 <phase>generate-resources</phase>
-                <?m2e execute onConfiguration,onIncremental?>
+								<?m2e execute onConfiguration,onIncremental?>
                 <goals>
                   <goal>compile</goal>
                 </goals>
@@ -388,7 +438,7 @@
       <build>
         <pluginManagement>
           <plugins>
-            <!-- This plugin's configuration is used to store Eclipse m2e settings 
+						<!-- This plugin's configuration is used to store Eclipse m2e settings 
               only. It has no influence on the Maven build itself. -->
             <plugin>
               <groupId>org.eclipse.m2e</groupId>
